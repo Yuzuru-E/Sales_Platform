@@ -1,0 +1,34 @@
+.Notification {
+  .notice {
+    background-color: #38AEF0;
+    color: #fff;
+    text-align: center;
+    z-index: 15;
+    position: fixed;
+    line-height: 24px;
+    width: 100vw;
+  }
+
+  .alert {
+    background-color: #F35500;
+    color: #fff;
+    text-align: center;
+    z-index: 15;
+    position: fixed;
+    line-height: 24px;
+    width: 100vw;
+  }
+}
+
+#error_explanation {
+  
+  margin: 5px auto;
+  padding: 5px 0; 
+  background-color: rgb(249, 187, 130);
+  border:1px solid rgb(183, 99, 99);
+  color: rgb(255, 255, 255);
+  border-radius: 5px;;
+  width: 85%;
+  text-align: start;
+
+}
