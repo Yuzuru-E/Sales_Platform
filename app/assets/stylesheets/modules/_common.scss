@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@mixin backColor {
+  background-color: rgb(166, 191, 247);
+}
+
+.container {
+  width: 75vw;
+  margin: 0 auto;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
