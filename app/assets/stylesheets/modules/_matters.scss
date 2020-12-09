@@ -1,0 +1,76 @@
+
+
+display:block{text-align:center}
+
+
+
+
+.h3 {
+  border-bottom:2px dotted black;
+  width: 80%;
+}
+
+main { 
+  clear:both;
+}
+.main-container {
+  width:95%;
+  margin: 0 auto;
+  margin-top:70px;
+}
+
+.right { 
+  float:left;
+  background-color:white;
+  width:70%;
+  margin-bottom:40px;
+  &__title {
+    h2 {
+      border-left: 5px solid black;
+      border-bottom:2px solid black;
+    }
+  }
+}
+
+.container {
+  background-color: gainsboro;
+  background: cover;
+}
+
+.slider {
+  width: 800px;
+  height: 500px;
+}
+
+.bbox{
+  width: 800px;
+  height: 50vh;
+}
+
+.sbox { 
+  /* width: 200px; */
+  height: 175px;
+  float: left;
+  text-align: center;
+  background-color: gainsboro;
+  padding: 10px 10px;
+  margin: 5px 5px;
+}
+
+.sbox p {
+  font-size: 12px;
+}
+
+.sbox img {
+  width: 140px;
+  height: 120px;
+}
+
+
+.left {
+  float: left;
+  background-color: white;
+  width: 30%;
+  margin-bottom: 40px;
+
+}
