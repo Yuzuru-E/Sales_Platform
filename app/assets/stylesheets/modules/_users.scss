@@ -1,53 +1,9 @@
 .signUp {
-  padding: 60px 0;
-  &__title {
-    margin-bottom: 0;
-    padding: 10px 0;
-  }
-  &__contents {
-    margin: 30px auto;
-    width: 50%;
-    border: 1px solid rgba(247, 241, 227, 0.229);
-    border-radius: 5px;
-    label {
-      font-size: 20px;
-      padding: 5px 0;
-      display: inline-block;
-    }
-    input {
-      width: 90%;
-      height: 30px;
-    }
-    .actions {
-      margin-top: 20px;
-    }
-  }
+  @include signUpLoginStyle();
 }
 
 .login {
-  padding: 100px 0;
-  &__title {
-    margin-bottom: 0;
-    padding: 10px 0;
-  }
-  &__contents {
-    margin: 30px auto;
-    width: 50%;
-    border: 1px solid rgba(247, 241, 227, 0.229);
-    border-radius: 5px;
-    label {
-      font-size: 20px;
-      padding: 5px 0;
-      display: inline-block;
-    }
-    input {
-      width: 85%;
-      height: 30px;
-    }
-    .actions {
-      margin-top: 20px;
-    }
-  }
+  @include signUpLoginStyle();
 }
 
 .MyPage {

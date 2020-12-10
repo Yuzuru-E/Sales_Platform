@@ -1,22 +1,12 @@
 .Notification {
   .notice {
     background-color: #38AEF0;
-    color: #fff;
-    text-align: center;
-    z-index: 15;
-    position: fixed;
-    line-height: 10px;
-    width: 100vw;
+    @include notifyStyle();
   }
 
   .alert {
     background-color: #F35500;
-    color: #fff;
-    text-align: center;
-    z-index: 15;
-    position: fixed;
-    line-height: 10px;
-    width: 100vw;
+    @include notifyStyle();
   }
 }
 
