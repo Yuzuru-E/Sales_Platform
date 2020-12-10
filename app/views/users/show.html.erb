@@ -1,0 +1,24 @@
+<div class="MyPage">
+  <div class="container">
+    <div class="ProfileBox">
+      <h2><%= current_user.name %>さんのページ</h2>
+      <% if @userImage %>
+      <%= image_tag @userImage, class: "currentUserIcon" %>
+      <% else %>
+      <%= image_tag 'userIcon.png', class: "currentUserIcon"%>
+      <% end %>
+      <h2 class="UserName"><%= current_user.name %></h2>
+      <ul class="ageOrGender">
+        <li class="age"><%#= @user.age.age %></li><span>　|　</span>
+        <li class="gender"><%#= @user.gender.gender %></li>
+      </ul>
+      <div class="introduce arrowBoxTop">
+        <p><%#= @user.introduction %></p>
+      </div>
+      <%#= link_to " プロフィールを編集する", "#", class: "btn fa fa-edit" %>
+      <%# if current_user.admin? %>
+        <%#= link_to "商品登録を行う", "#" class: "btn" %>
+      <%# end %>
+    </div>
+  </div>
+</div>

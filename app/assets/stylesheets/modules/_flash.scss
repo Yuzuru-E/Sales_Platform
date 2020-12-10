@@ -1,0 +1,28 @@
+.Notification {
+  .notice {
+    background-color: #38AEF0;
+    @include notifyStyle();
+  }
+
+  .alert {
+    background-color: #F35500;
+    @include notifyStyle();
+  }
+}
+
+#error_explanation {
+  margin: 5px auto;
+  padding: 5px 0; 
+  background-color: rgb(243, 89, 18);
+  border:1px solid rgb(183, 99, 99);
+  color: rgb(255, 255, 255);
+  border-radius: 5px;;
+  width: 85%;
+  text-align: center;
+  h2 {
+    font-size: 14px;
+  }
+  li {
+    font-size: 13px;
+  }
+}
