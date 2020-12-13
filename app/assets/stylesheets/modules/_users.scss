@@ -7,13 +7,44 @@
 }
 
 .MyPage {
-  padding-top: 120px;
-  .currentUserIcon {
-    width: 150px;
-    height: 150px;
+  padding-top: 100px;
+  .ProfileBox {
+    &__title {
+      padding-top: 5px;
+    }
+    &__subtitle {
+      font-size: 20px;
+    }
+  }
+  .commonProfile {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    .userIcon {
+      .icon {
+        width: 150px;
+        // height: 150px;
+      }
+    }
+    .profileFlex {
+      display: flex;
+    }
+    &__title {
+      margin-top: 5px;
+      font-size: 15px;
+      text-align: center;
+    }
+  }
+  .detail {
+    &__cliant {
+      .subtitle {
+        margin-top: 10px;
+        font-size: 20px;
+      }
+    }
   }
 
-  .ageOrGender {
+  .profileEdit {
     display: flex;
     justify-content: center;
     padding-left: 0;
@@ -31,7 +62,7 @@
   .arrowBoxTop {
     position: relative;
     background: #ffffff;
-    border: 5px solid #e8a54d;
+    border: 2px solid #4dafe8;
     border-radius: 5px;
   }
   .arrowBoxTop:after, .arrowBoxTop:before {
