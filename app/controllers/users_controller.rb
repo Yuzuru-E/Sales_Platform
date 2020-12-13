@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit_cliant
+  def edit_client
   end
 
   def edit_contaractor

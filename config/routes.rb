@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get 'logout'
-      get 'edit_cliant'
+      get 'edit_client'
       get 'edit_contractor'
     end
   end
