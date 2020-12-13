@@ -1,24 +1,62 @@
+<%# マイページ %>
 <div class="MyPage">
   <div class="container">
     <div class="ProfileBox">
-      <h2><%= current_user.name %>さんのページ</h2>
-      <% if @userImage %>
-      <%= image_tag @userImage, class: "currentUserIcon" %>
-      <% else %>
-      <%= image_tag 'userIcon.png', class: "currentUserIcon"%>
-      <% end %>
-      <h2 class="UserName"><%= current_user.name %></h2>
-      <ul class="ageOrGender">
-        <li class="age"><%#= @user.age.age %></li><span>　|　</span>
-        <li class="gender"><%#= @user.gender.gender %></li>
-      </ul>
-      <div class="introduce arrowBoxTop">
-        <p><%#= @user.introduction %></p>
+      <h2 class="ProfileBox__title"><%= @user.name %>さんのページ</h2>
+      <h3 class="ProfileBox__subtitle">アカウント共通情報</h3>
+      <div class="commonProfile row">
+        <div class="col-md-auto userIcon">
+          <p class="col-md icon">アイコン</p>
+          <% if @userImage %>
+          <%= image_tag @userImage, class: "icon" %>
+          <% else %>
+          <%= image_tag 'userIcon.png', class: "icon"%>
+          <% end %>
+        </div>
+        <div class="currentProfile">
+          <ul class="col-sm-auto commonProfile__name profileFlex">
+            <li class="col-sm">ユーザー名</li>
+            <li class="col-sm"><%= @user.name %></li>
+          </ul>
+          <ul class="col-sm commonProfile__accountMail profileFlex">
+            <li class="col-sm-auto">アカウントメールアドレス</li>
+            <li class="col-sm"><%= @user.email %></li>
+          </ul>
+          <ul class="col-sm commonProfile__contactMail profileFlex">
+            <li class="col-sm">連絡用メールアドレス</li>
+            <% if @user.contact_mail? %>
+            <li class="col-sm"><%= @user.contact_mail %></li>
+            <% elsif %>
+            <li class="col-sm"> 未登録 </li>
+            <% end %>
+          </ul>
+          <ul class="col-sm commonProfile__sendOrder profileFlex">
+            <li class="col-sm">発注数</li>
+            <% if @user.send_order_count? %>
+            <li class="col-sm"><%= @user.send_order_count %>件</li>
+            <% elsif %>
+            <li class="col-sm"> 0件</li>
+            <% end %>
+          </ul>
+          <ul class="col-sm commonProfile__receiveOrder profileFlex">
+            <li class="col-sm">受注数</li>
+            <% if @user.receive_order_count? %>
+            <li class="col-sm"><%= @user.receive_order_count %>件</li>
+            <% elsif %>
+            <li class="col-sm"> 0件</li>
+            <% end %>
+          </ul>
+        </div>
       </div>
-      <%#= link_to " プロフィールを編集する", "#", class: "btn fa fa-edit" %>
-      <%# if current_user.admin? %>
-        <%#= link_to "商品登録を行う", "#" class: "btn" %>
-      <%# end %>
+        <h3 class="ProfileBox__subtitle">自己紹介文</h3>
+        <div class="introduce arrowBoxTop">
+          <p><%#= @user.introduction %></p>
+        </div>
+    </div>
+
+    <div class="detail">
+      <%= render "users/cliant" %>
+      <%= render "users/contractor" %>
     </div>
   </div>
 </div>
