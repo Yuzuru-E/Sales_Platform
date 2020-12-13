@@ -12,4 +12,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit_cliant
+  end
+
+  def edit_contaractor
+  end
+  
 end
