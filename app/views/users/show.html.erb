@@ -49,14 +49,14 @@
         </div>
       </div>
         <h3 class="ProfileBox__subtitle">自己紹介文</h3>
-        <div class="introduce arrowBoxTop">
+        <div class="col introduce arrowBoxTop">
           <p><%#= @user.introduction %></p>
         </div>
     </div>
 
-    <div class="detail">
-      <%= render "users/cliant" %>
-      <%= render "users/contractor" %>
+    <div class="detail row">
+      <%= render partial: 'users/client', locals: { user: @user } %>
+      <%= render partial: 'users/contractor', locals: { user: @user } %>
     </div>
   </div>
 </div>
