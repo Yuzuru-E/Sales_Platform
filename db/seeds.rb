@@ -1,6 +1,8 @@
 # 営業手法
 business_method = [{name: "個人営業"},{name: "法人営業"},{name: "訪問営業"},{name: "飛び込み営業"},{name: "ルート営業"},{name: "新規営業"},{name: "既存営業"},{name: "テレアポ営業"},{name: "電話営業"},{name: "メール営業＆フォーム営業"},{name: "紹介営業"},{name: "代理店営業"},{name: "同行営業(営業同行)"},{name: "反響営業"},{name: "その他"}]
 
+initial_value = Industry.create(name: "業種カテゴリー")
+
 # 一次産業
 first_industry = Industry.create(name: "一次産業")
 first_industry_1 = first_industry.children.create(name: "農業")
