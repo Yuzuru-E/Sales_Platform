@@ -5,12 +5,12 @@
       <h2 class="ProfileBox__title"><%= @user.name %>さんのページ</h2>
       <h3 class="ProfileBox__subtitle">アカウント共通情報</h3>
       <div class="commonProfile row">
-        <div class="col-md-auto userIcon">
-          <p class="col-md icon">アイコン</p>
+        <div class="col userIcon">
+          <p class="userIcon__title">プロフィール画像</p>
           <% if @userImage %>
-          <%= image_tag @userImage, class: "icon" %>
+          <%= image_tag @userImage, class: "userIcon__icon" %>
           <% else %>
-          <%= image_tag 'userIcon.png', class: "icon"%>
+          <%= image_tag 'userIcon.png', class: "userIcon__icon"%>
           <% end %>
         </div>
         <div class="currentProfile">
@@ -32,26 +32,32 @@
           </ul>
           <ul class="col-sm commonProfile__sendOrder profileFlex">
             <li class="col-sm">発注数</li>
-            <% if @user.send_order_count? %>
-            <li class="col-sm"><%= @user.send_order_count %>件</li>
-            <% elsif %>
+            <% if @client == nil %>
             <li class="col-sm"> 0件</li>
+            <% elsif %>
+            <li class="col-sm"><%= @client.send_order_count %></li>
             <% end %>
           </ul>
           <ul class="col-sm commonProfile__receiveOrder profileFlex">
             <li class="col-sm">受注数</li>
-            <% if @user.receive_order_count? %>
-            <li class="col-sm"><%= @user.receive_order_count %>件</li>
-            <% elsif %>
+            <% if @contractor == nil %>
             <li class="col-sm"> 0件</li>
+            <% elsif %>
+            <li class="col-sm"><%= @contractor.receive_order_count %></li>
             <% end %>
           </ul>
         </div>
-      </div>
-        <h3 class="ProfileBox__subtitle">自己紹介文</h3>
-        <div class="col introduce arrowBoxTop">
-          <p><%#= @user.introduction %></p>
         </div>
+        <h3 class="ProfileBox__subtitle">自己紹介文(事業内容/経歴等)</h3>
+        <div class="col introduce arrowBoxTop">
+          <% if @user.profile == nil %>
+          <p class="col-sm">未登録</p>
+          <% elsif %>
+          <%= safe_join(@user.profile.split("\n"),tag(:br)) %>
+          <% end %>
+          <p></p>
+        </div>
+        <div><%= link_to "アカウント共通情報を編集する", edit_user_path(current_user.id), class: "btn fa fa-edit" %></div>
     </div>
 
     <div class="detail row">
