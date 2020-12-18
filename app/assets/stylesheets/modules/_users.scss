@@ -9,11 +9,15 @@
 .MyPage {
   padding-top: 100px;
   .ProfileBox {
+    margin: 0 auto;
+    width: 80%;
     &__title {
-      padding-top: 5px;
+      padding-top: 10px;
+      font-weight: bold;
     }
     &__subtitle {
       font-size: 20px;
+      font-weight: bold;
     }
   }
   .commonProfile {
@@ -21,9 +25,13 @@
     margin: 0 auto;
     display: flex;
     .userIcon {
-      .icon {
+      &__title {
+
+      }
+      &__icon {
         width: 150px;
-        // height: 150px;
+        height: 150px;
+        margin: 0 auto;
       }
     }
     .profileFlex {
@@ -36,11 +44,20 @@
     }
   }
   .detail {
-    &__cliant {
-      .subtitle {
-        margin-top: 10px;
-        font-size: 20px;
-      }
+    .item {
+      margin: 5px auto;
+      padding: 10px auto;
+    }
+    .itemTitle {
+      font-size: 20px;
+      color: brown; 
+    }
+    .userInfo {
+    }
+    .subtitle {
+      font-weight: bold;
+      margin-top: 20px;
+      font-size: 25px;
     }
   }
 
@@ -50,11 +67,12 @@
     padding-left: 0;
   }
   .introduce {
-    width: 75%;
-    height: 120px;
+    width: 80%;
+    height: auto;
     margin: 0 auto;
     padding: 10px 15px;
-    overflow: scroll;
+    overflow: visible scroll;
+    text-align: initial;
     p {
       margin-bottom: 0;
     }
@@ -96,5 +114,70 @@
     border: 1px solid #e8a54d;
     border-radius: 5px;
     background-color: lightblue;
+  }
+}
+
+.edit {
+  padding: 100px 0;
+  &__title {
+    padding-top: 20px;
+  }
+  .currentUserIcon {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+  }
+  &__item {
+    padding-right: 50px;
+    margin-right: 20px;
+  }
+  &__contents {
+    .iconTitle {
+      margin: 10px 0;
+    }
+    margin: 30px auto;
+    width: 70%;
+    border: 1px solid rgba(247, 241, 227, 0.229);
+    border-radius: 5px;
+    .field {
+      display: flex;
+    }
+    label {
+      font-size: 22px;
+      // padding: 5px 0;
+      display: inline-block;
+    }
+    input {
+      height: 30px;
+      width: 37.5%;
+    }
+    .actions {
+      margin: 20px;
+      input {
+        background-color: rgb(255, 177, 66);
+        padding: 10px 20px;
+        border: 1px solid #bdc3c7;
+        border-radius: 5px;
+        line-height: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+  &__selectBox {
+    margin-bottom: 10px;
+  }
+  .back {
+    padding: 10px 20px;
+    background-color: #bdc3c7;
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  &__introduction {
+    height: 200px;
+    #user_profile {
+      width: 80%;
+      height: 80%;
+    }
   }
 }
