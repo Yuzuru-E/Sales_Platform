@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   resources :matters 
 
   resources :users do
+    resources :client, only: [:new, :edit]
+    resources :contractor, only: [:new, :edit]
     member do
       get 'logout'
-      get 'edit_client'
-      get 'edit_contractor'
     end
   end
   
