@@ -1,0 +1,41 @@
+<div class="edit">
+  <div class="container">
+    <div class="edit__contents">
+    
+      <h2 class="edit__title" ><%= current_user.name.to_s.humanize %>のプロフィール編集</h2>
+      <h5 class="iconTitle">現在のプロフィール画像</h5>
+      <%= form_with model:@user, local: true do |f| %>
+        <% if @userImage %>
+        <%= image_tag @userImage, class: "currentUserIcon" %>
+        <% else %>
+        <%= image_tag 'userIcon.png', class: "currentUserIcon"%>
+        <% end %>
+        <div class="field">
+          <%= f.label :profile_image, "ユーザーアイコン", class: "edit__item col-6" %>
+          <%= f.file_field :profile_image, autofocus: true %>
+        </div>
+        <div class="field">
+          <%= f.label :name, "ユーザー名", class: "edit__item col-6" %>
+          <%= f.text_field :name, placeholder: "例) hoge太郎" %>
+        </div>
+        <div class="field">
+          <%= f.label :email, "アカウントメールアドレス", class: "edit__item col-6" %>
+          <%= f.text_field :email, placeholder: "sample@sample.com" %>
+        </div>
+        <div class="field">
+          <%= f.label :contact_mail, "連絡用メールアドレス", class: "edit__item col-6" %>
+          <%= f.text_field :contact_mail, placeholder: "sample@sample.com" %>
+        </div>
+        <div class="edit__introduction">
+          <%= f.label :profile, "自己紹介文(事業内容/経歴等)", class: "edit__item col" %>
+          <%= f.text_area :profile, placeholder: "事業情報や経歴等 ※1000文字まで", maxlength: 1000 %>
+        </div>
+        
+        <div class="actions">
+          <%= f.submit "更新する", method: :patch %>
+        </div>
+      <% end %>
+      <%= link_to "マイページへ戻る", :back, class: "back" %>
+    </div>
+  </div>
+</div>
