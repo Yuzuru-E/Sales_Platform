@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :matters 
 
   resources :users do
-    resources :client, only: [:new, :edit]
-    resources :contractor, only: [:new, :edit]
+    resources :clients, only: [:new, :edit]
+    resources :contractors, only: [:new, :edit]
     member do
       get 'logout'
     end
