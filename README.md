@@ -37,7 +37,7 @@ Things you may want to cover:
   ## clientsテーブル
   |Column|Type|Options|
   |------|----|-------|
-  |company_name|string||
+  |name|string||
   |postal_code|||
   |prefectures|references|null: false, default: 0|
   |city|text||
