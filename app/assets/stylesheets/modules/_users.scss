@@ -53,6 +53,16 @@
       color: brown; 
     }
     .userInfo {
+      a {
+
+        display: inline-block;
+        padding: 5px;
+        margin: 5px 0px;
+        border:1px solid rgb(194, 162, 23);
+        border-radius: 5px;
+        text-decoration: none;
+        color: tomato;
+      }
     }
     .subtitle {
       font-weight: bold;
