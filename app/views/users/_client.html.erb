@@ -1,48 +1,41 @@
 <%# 発注者情報 %>
 <div class="detail__client col">
     <h3 class="subtitle">クライアント情報</h3>
+    <% if @client == nil %>
+    <div class="Edit__client"><%= link_to "発注者プロフィールを登録する", new_client_path, class: "btn fa fa-edit" %></div>
+    <% elsif %>
     <ul class="clietName item">
       <li class="itemTitle">クライアント名</li>
-      <% if @user.company_name? %>
-      <li class="userInfo"><%= @user.company_name %></li>
-      <% else %>
-      <li class="userInfo">未設定</li>
-      <% end %>
-    </ul>
-    <ul class="businessContent item">
-      <li class="itemTitle">事業内容</li>
-      <% if @user.business_content? %>
-      <li class="userInfo"><%= @user.business_content %></li>
-      <%# <div class="col introduce arrowBoxTop"> %>
-        <p><%#= @user.introduction %></p>
-      <%# </div> %>
+      <% if @client.name? %>
+      <li class="userInfo"><%= @client.name %></li>
       <% else %>
       <li class="userInfo">未設定</li>
       <% end %>
     </ul>
     <ul class="hpUrl item">
       <li class="itemTitle">HPリンク</li>
-      <%# if @user.url? %>
-      <li class="userInfo"><%#= link_to @user.url %></li>
-      <%# else %>
+      <% if @client.hp_url? %>
+      <li class="userInfo"><%= link_to '外部リンク', @client.hp_url %></li>
+      <% else %>
       <li class="userInfo">未設定</li>
-      <%# end %>
+      <% end %>
     </ul>
     <ul class="cliantAddress item">
       <li class="itemTitle">所在地</li>
-      <% if @user.prefecture.name? %>
-      <li class="userInfo"><%= @user.prefecture.name %></li>
+      <% if @client.prefecture_id %>
+      <li class="userInfo"><%= @client.prefecture.name %></li>
       <% else %>
       <li class="userInfo">未設定</li>
       <% end %>
     </ul>
     <ul class="phoneNumber item">
       <li class="itemTitle">電話番号</li>
-      <% if @user.phone_number? %>
-      <li class="userInfo"><%= @user.phone_number %></li>
+      <% if @client.phone_number? %>
+      <li class="userInfo"><%= @client.phone_number %></li>
       <% else %>
       <li class="userInfo">未設定</li>
       <% end %>
     </ul>
-  <div class="Edit__cliant"><%= link_to "発注者プロフィールを編集する", "#", class: "btn fa fa-edit" %></div>
+    <div class="Edit__client"><%= link_to "発注者プロフィールを編集する", edit_client_path(@client.id), class: "btn fa fa-edit" %></div>
+    <% end %>
 </div>
