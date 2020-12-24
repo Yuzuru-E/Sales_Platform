@@ -7,7 +7,7 @@ class CreateClients < ActiveRecord::Migration[6.0]
       t.references :prefecture, null: false, default: 0
       t.string :city
       t.string :address
-      t.integer :phone_number
+      t.string :phone_number
       t.integer :send_order_count
       t.references :user, null: false, foreign_key: true
       t.timestamps
