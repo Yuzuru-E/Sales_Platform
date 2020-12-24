@@ -3,6 +3,14 @@ class UsersController < ApplicationController
   def new
   end
 
+  def get_industry_children
+    @industry_children = Industry.find(params[:parent_id]).children
+  end
+
+  def get_industry_grandchildren
+    @industry_grandchildren = Industry.find(params[:child_id]).children
+  end
+
   def show
     @client = Client.find_by(user_id: current_user.id)
     @contractor = Contractor.find_by(user_id: current_user.id)
@@ -12,6 +20,9 @@ class UsersController < ApplicationController
     else
       @userImage = nil
     end
+    @grandchild = Industry.find(@user.industry_id)
+    @child = @grandchild.parent
+    @parent = @child.parent if @child
   end
 
   def edit
