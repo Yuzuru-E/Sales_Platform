@@ -18,30 +18,13 @@ Things you may want to cover:
   |Column|Type|Options|
   |------|----|-------|
   |name|string|null: false|
-  |mail_address|integer|null: false, unique: true|
+  |email|integer|null: false, unique: true|
   |password|string|null: false|
-  |image|text||
-  |send_order_count|integer||
-  |receive_order_count|integer||
-  |admin|boolean|default: 0|
   |contact_mail|text||
-  |industry|references|null: false|
-  |operating_status|references|null: false, default: 0|
-  |company_name|string||
-  |business_content|text||
-  |postal_code|||
-  |prefectures|references|null: false, default: 0|
-  |city|text||
-  |address|string||
-  |building|text||
-  |tel|integer||
-  |gender|references|null: false, default: 0|
-  |age|integer||
-  |capabilities|string||
-  |performance|text||
   |profile|text||
-  |suggested_price|integer||
-  <!-- |evaluations|references|null: false, default: 0| -->
+  |profile_image|text||
+  |industry|references|null: false, foreign_key: true|
+  |admin|boolean|default: 0|
   ### Association
   - has_many :advertisements, dependent: :destroy
   - has_many :matters, dependent: :destroy 
@@ -50,6 +33,36 @@ Things you may want to cover:
   - belongs_to :operathing_status
   - belongs_to :evaluation
   - belongs_to :industry
+
+  ## clientsテーブル
+  |Column|Type|Options|
+  |------|----|-------|
+  |name|string||
+  |postal_code|||
+  |prefectures|references|null: false, default: 0|
+  |city|text||
+  |address|string||
+  |building|text||
+  |tel|integer||
+  |send_order_count|integer||
+  |user|references|null: false, foreign_key: true|
+  ### Association
+  - has_many :matters
+  - has_many :advertisements
+  - belongs_to :user
+
+  ## contractorsテーブル
+  |Column|Type|Options|
+  |------|----|-------|
+  |operating_status|references|null: false, default: 0|
+  |gender|references|null: false, default: 0|
+  |age|integer||
+  |suggested_price|integer||
+  |receive_order_count|integer||
+  |user|references|null: false, foreign_key: true|
+  ### Association
+  - has_many :matters
+  - belongs_to :user
 
   ## advertisementsテーブル
   |Column|Type|Options|
@@ -60,10 +73,10 @@ Things you may want to cover:
   |post_period|string|null:false|
   |banner_img|text|null: false|
   |banner_url|text|null: false|
-  |industry|references|null: false|
+  |industry|references|null: false, foreign_key: true|
   |cost|integer|null: false|
   ### Association
-  - belongs_to :user
+  - belongs_to :client
   - belongs_to :industry
   
   ## mattersテーブル
@@ -76,10 +89,10 @@ Things you may want to cover:
   |post_period|string|null: false|
   |reward|string|null: false|
   |deadline|string||
-  |industry|references|null: false|
+  |industry|references|null: false, foreign_key: true|
   ### Association
-  - belongs_to :client, class_name "User"
-  - belongs_to :contractor, class_name "User"
+  - belongs_to :client
+  - belongs_to :contractor
   - belongs_to :industry
 
   ## industriesテーブル

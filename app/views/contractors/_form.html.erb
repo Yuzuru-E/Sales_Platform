@@ -1,0 +1,21 @@
+<%# ランサー情報フォーム %>
+<h2 class="contractor__title" ><%= current_user.name.to_s.humanize %>のクライアント情報</h2>
+<%= form_with model:@contractor, local: true do |f| %>
+  <div class="field">
+    <%= f.label :gender_id, "性別", class: "edit__item col-6" %>
+    <%= f.collection_select :gender_id, Gender.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :operating_id, "稼働状況", class: "edit__item col-6" %>
+    <%= f.collection_select :operating_id, Operating.all, :id, :status %>
+  </div>
+  <div class="field">
+    <%= f.label :suggested_price, "希望単価", class: "edit__item col-6" %>
+    <%= f.text_field :suggested_price, placeholder: "例) 時給単価3000円" %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "登録する" %>
+  </div>
+<% end %>
+<%= link_to "マイページへ戻る", :back, class: "back" %>

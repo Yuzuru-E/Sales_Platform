@@ -1,7 +1,51 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# 営業手法
+business_method = [{name: "個人営業"},{name: "法人営業"},{name: "訪問営業"},{name: "飛び込み営業"},{name: "ルート営業"},{name: "新規営業"},{name: "既存営業"},{name: "テレアポ営業"},{name: "電話営業"},{name: "メール営業＆フォーム営業"},{name: "紹介営業"},{name: "代理店営業"},{name: "同行営業(営業同行)"},{name: "反響営業"},{name: "その他"}]
+
+initial_value = Industry.create(name: "未選択")
+
+# 一次産業
+first_industry = Industry.create(name: "一次産業")
+first_industry_1 = first_industry.children.create(name: "農業")
+first_industry_1.children.create(business_method)
+first_industry_2 = first_industry.children.create(name: "林業")
+first_industry_2.children.create(business_method)
+first_industry_3 = first_industry.children.create(name: "漁業")
+first_industry_3.children.create(business_method)
+
+# 二次産業
+second_industry = Industry.create(name: "二次産業")
+second_industry_1 = second_industry.children.create(name: "鉱業")
+second_industry_1.children.create(business_method)
+second_industry_2 = second_industry.children.create(name: "製造業")
+second_industry_2.children.create(business_method)
+second_industry_3 = second_industry.children.create(name: "建設業")
+second_industry_3.children.create(business_method)
+
+# 三次産業
+third_industry = Industry.create(name: "三次産業")
+third_industry_1 = third_industry.children.create(name: "電気・ガス・熱供給・水道")
+third_industry_1.children.create(business_method)
+third_industry_2 = third_industry.children.create(name: "情報通信業")
+third_industry_2.children.create(business_method)
+third_industry_3 = third_industry.children.create(name: "運輸業、郵便業")
+third_industry_3.children.create(business_method)
+third_industry_4 = third_industry.children.create(name: "卸売業、小売業")
+third_industry_4.children.create(business_method)
+third_industry_4 = third_industry.children.create(name: "金融業、保険業")
+third_industry_4.children.create(business_method)
+third_industry_4 = third_industry.children.create(name: "不動産業、物品賃貸業")
+third_industry_4.children.create(business_method)
+third_industry_4 = third_industry.children.create(name: "学術研究、専門・技術サービス業")
+third_industry_4.children.create(business_method)
+third_industry_4 = third_industry.children.create(name: "生活関連サービス業、娯楽業")
+third_industry_4.children.create(business_method)
+third_industry_4 = third_industry.children.create(name: "教育、学習支援業")
+third_industry_4.children.create(business_method)
+third_industry_4 = third_industry.children.create(name: "医療、福祉")
+third_industry_4.children.create(business_method)
+third_industry_4 = third_industry.children.create(name: "複合サービス事業")
+third_industry_4.children.create(business_method)
+third_industry_4 = third_industry.children.create(name: "サービス業")
+third_industry_4.children.create(business_method)
+third_industry_4 = third_industry.children.create(name: "その他産業")
+third_industry_4.children.create(business_method)
