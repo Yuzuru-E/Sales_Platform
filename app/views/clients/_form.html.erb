@@ -1,0 +1,37 @@
+<%# クライアント情報フォーム %>
+<h2 class="client__title" ><%= current_user.name.to_s.humanize %>のクライアント情報</h2>
+<%= form_with model:@client, local: true do |f| %>
+  <div class="field">
+    <%= f.label :name, "クライアント名", class: "edit__item col-6" %>
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :hp_url, "HP URL", class: "edit__item col-6" %>
+    <%= f.text_field :hp_url, placehslder: "例) https://sample.com" %>
+  </div>
+  <div class="field">
+    <%= f.label :postal_code, "郵便番号", class: "edit__item col-6" %>
+    <%= f.text_field :postal_code, placeholder: "123-4567" %>
+  </div>
+  <div class="field">
+    <%= f.label :prefecture_id, "都道府県", class: "edit__item col-6" %>
+    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :city, "市区町村", class: "edit__item col-6" %>
+    <%= f.text_field :city, placeholder: "新宿区" %>
+  </div>
+  <div class="field">
+    <%= f.label :address, "住所", class: "edit__item col-6" %>
+    <%= f.text_field :address, placeholder: "西新宿三丁目7番1号" %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_number, "電話番号", class: "edit__item col-6" %>
+    <%= f.text_field :phone_number, placeholder: "090XXXXXXXX" %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "登録する" %>
+  </div>
+<% end %>
+<%= link_to "マイページへ戻る", :back, class: "back" %>
