@@ -1,6 +1,6 @@
 class Prefecture < ActiveHash::Base
   include ActiveHash::Associations
-  has_many :users
+  has_many :client
 
   self.data = [
       {id: 0, name: '未選択'},
