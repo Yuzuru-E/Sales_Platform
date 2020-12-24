@@ -43,6 +43,15 @@
       text-align: center;
     }
   }
+  .experienceIndustry {
+    .industry {
+      display: flex;
+      justify-content: center;
+      &__item {
+        margin: 0 10px;
+      }
+    }
+  }
   .detail {
     .item {
       margin: 5px auto;
@@ -158,6 +167,13 @@
       display: inline-block;
     }
     input {
+      height: 30px;
+      width: 37.5%;
+    }
+    .industryForm__wrapper__added {
+      margin: 10px 0;
+    }
+    .industryForm__wrapperBox--select {
       height: 30px;
       width: 37.5%;
     }
