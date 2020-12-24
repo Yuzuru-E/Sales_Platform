@@ -1,5 +1,33 @@
-<%# 受託者情報 %>
-<div class="detail__contractor">
-
-  <div class="Edit__contractor"><%= link_to "受注者プロフィールを編集する", "#", class: "btn fa fa-edit" %></div>
+<%# ランサー情報 %>
+<div class="detail__contractor col">
+  <h3 class="subtitle">ランサー情報</h3>
+  <% if @contractor == nil %>
+  <div class="Edit__contractor"><%= link_to "受注者プロフィールを登録する", new_contractor_path, class: "btn fa fa-edit" %></div>
+  <% elsif %>
+  <ul class="gender item">
+    <li class="itemTitle">性別</li>
+    <% if @contractor.gender_id? %>
+    <li class="userInfo"><%= @contractor.gender.name %></li>
+    <% else %>
+    <li class="userInfo">未設定</li>
+    <% end %>
+  </ul>
+  <ul class="operatingStatus item">
+    <li class="itemTitle">稼働状況</li>
+    <% if @contractor.operating_id? %>
+    <li class="userInfo"><%= @contractor.operating.status %></li>
+    <% else %>
+    <li class="userInfo">未設定</li>
+    <% end %>
+  </ul>
+  <ul class="suggestedPrice item">
+    <li class="itemTitle">希望単価</li>
+    <% if @contractor.suggested_price? %>
+    <li class="userInfo"><%= @contractor.suggested_price %></li>
+    <% else %>
+    <li class="userInfo">未設定</li>
+    <% end %>
+  </ul>
+  <div class="Edit__contractor"><%= link_to "受注者プロフィールを編集する", edit_contractor_path(@contractor.id), class: "btn fa fa-edit" %></div>
+  <% end %>
 </div>
