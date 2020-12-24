@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="search.css">
+        <script src="script.js"></script>
+
+    </head>
+    <body>
+     
+        <header>
+          <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <!-- ホームへ戻るリンク。ブランドロゴなどを置く。 -->
+            <a href="#" class="navbar-brand">検索結果</a>
+            
+            <!-- 横幅が狭い時に出るハンバーガーボタン -->
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            
+          </nav>
+        </header>
+        
+        
+<div class="container container-m">
+<div class="card-deck">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><strong>カテゴリから探す</strong></h5>
+      
+      
+  <div id="main">
+   <h6>絞込検索</h6> 
+    <form>
+      <div class="list-box">
+        <ul class="cat-list">
+          <li>
+            <span class="ttl">一次産業</span>
+            <ul class="list-options">
+              <li><label><input type="checkbox" name="catItems[]" value="農業">農業</label></li>
+              <li><label><input type="checkbox" name="catItems[]" value="林業">林業</label></li>
+              <li><label><input type="checkbox" name="catItems[]" value="漁業">漁業</label></li>
+
+            </ul>
+          </li>
+          <li>
+            <span class="ttl">二次産業</span>
+            <ul class="list-options">
+              <li><label><input type="checkbox" name="catItems[]" value="鉱業">鉱業</label></li>
+              <li><label><input type="checkbox" name="catItems[]" value="製造">製造</label></li>
+              <li><label><input type="checkbox" name="catItems[]" value="建設">建設</label></li>
+            </ul>
+          </li>
+          <li>
+            <span class="ttl">三次産業</span>
+            <ul class="list-options">
+              <li><label><input type="checkbox" name="catItems[]" value="電気・ガス">電気・ガス</label></li>
+              <li><label><input type="checkbox" name="catItems[]" value="情報通信">情報通信</label></li>
+              <li><label><input type="checkbox" name="catItems[]" value="運輸">運輸</label></li>
+              <li><label><input type="checkbox" name="catItems[]" value="小売">小売</label></li>
+              <li><label><input type="checkbox" name="catItems[]" value="金融">金融</label></li>
+            </ul>
+          </li>
+          <li>
+            <span class="ttl">職種</span>
+            <ul class="list-options">
+              <li><label><input type="checkbox" name="catItems[]" value="個人営業">個人営業</label></li>
+              <li><label><input type="checkbox" name="catItems[]" value="法人営業">法人営業</label></li>
+              <li><label><input type="checkbox" name="catItems[]" value="訪問営業">訪問営業</label></li>
+              <li><label><input type="checkbox" name="catItems[]" value="ルート営業">ルート営業</label></li>
+              <li><label><input type="checkbox" name="catItems[]" value="新規営業">新規営業</label></li>
+            </ul>
+          </li>
+        </ul>
+        
+        <ul class="tag-list"></ul>
+        
+        <ul class="btn-box">
+          <li><div class="clear-box"><a id="clear" class="btn btn-clear">全てを解除</a></div></li>
+          <li><div class="submit-box"><button id="submit" type="submit" class="btn btn-submit">絞り込む</button></div></li>
+        </ul>
+        
+      </div><!-- list-box -->
+    </form>
+  </div>
+
+　　</div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>
+</div>
+                    
+        <div class="pb-3" style="color: white; ">下に1remのパディング</div>
+        
+        <footer class="center-block pt-3 pb-3 border-top">
+          <strong>&copy; 2020 SAMPLE Inc.</strong>
+        </footer>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS, then Font Awesome -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+    </body>
+</html>
