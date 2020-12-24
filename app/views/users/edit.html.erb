@@ -26,6 +26,18 @@
           <%= f.label :contact_mail, "連絡用メールアドレス", class: "edit__item col-6" %>
           <%= f.text_field :contact_mail, placeholder: "sample@sample.com" %>
         </div>
+        <div class="field">
+        </div>
+          <div class="industryForm">
+            <div class="industryForm__box">
+              <div class="industryForm__wrapper">
+                <div class="industryForm__wrapperBox new__all-box">
+                  <%= f.label :industry, "経験産業", class: "edit__item col-5" %>
+                  <%= f.collection_select :industry_id, Industry.roots, :id, :name, {include_blank: "選択してください", selected: @user.industry&.root_id}, required: true, class: "industryForm__wrapperBox--select new__all__text-field", id: "parent_industry" %>
+                </div>
+              </div>
+            </div>
+          </div>
         <div class="edit__introduction">
           <%= f.label :profile, "自己紹介文(事業内容/経歴等)", class: "edit__item col" %>
           <%= f.text_area :profile, placeholder: "事業情報や経歴等 ※1000文字まで", maxlength: 1000 %>
