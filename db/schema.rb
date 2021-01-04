@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2020_12_24_044912) do
     t.bigint "industry_id", default: 1
     t.string "reward", null: false
     t.integer "number_of_positions", null: false
+    t.date "order_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["client_id"], name: "index_matters_on_client_id"
