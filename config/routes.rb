@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :matters do
     collection do
       get "ordered_index"
+      get "recieved_index"
+    end
+    member do
+      patch "decline"
     end
   end
 
