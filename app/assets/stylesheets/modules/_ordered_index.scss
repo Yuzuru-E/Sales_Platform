@@ -1,0 +1,13 @@
+// 発注済案件一覧
+
+.matters {
+    .back {
+    @include backBtn();
+    }
+}
+
+.matterDetails {
+    &__common {
+        line-height: 66px;
+    }
+}
