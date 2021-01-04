@@ -11,6 +11,7 @@ class CreateMatters < ActiveRecord::Migration[6.0]
       t.references :industry, default: 1
       t.string :reward, null: false
       t.integer :number_of_positions, null: false
+      t.date :order_date, null: true
       t.timestamps
     end
   end
