@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_15_051539) do
+ActiveRecord::Schema.define(version: 2020_12_24_044912) do
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -49,6 +49,23 @@ ActiveRecord::Schema.define(version: 2020_12_15_051539) do
     t.index ["ancestry"], name: "index_industries_on_ancestry"
   end
 
+  create_table "matters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "client_id", null: false
+    t.integer "contractor_id"
+    t.string "title", null: false
+    t.text "matter_content", null: false
+    t.date "start_on", null: false
+    t.date "end_on", null: false
+    t.string "contract_period", null: false
+    t.bigint "industry_id", default: 1
+    t.string "reward", null: false
+    t.integer "number_of_positions", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_matters_on_client_id"
+    t.index ["industry_id"], name: "index_matters_on_industry_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -69,4 +86,5 @@ ActiveRecord::Schema.define(version: 2020_12_15_051539) do
 
   add_foreign_key "clients", "users"
   add_foreign_key "contractors", "users"
+  add_foreign_key "matters", "clients"
 end

@@ -32,7 +32,7 @@
           </ul>
           <ul class="col-sm commonProfile__sendOrder profileFlex">
             <li class="col-sm">発注数</li>
-            <% if @client.send_order_count == nil %>
+            <% if @client == nil %>
             <li class="col-sm"> 0件</li>
             <% elsif %>
             <li class="col-sm"><%= @client.send_order_count %>件</li>
@@ -40,7 +40,7 @@
           </ul>
           <ul class="col-sm commonProfile__receiveOrder profileFlex">
             <li class="col-sm">受注数</li>
-            <% if @contractor.receive_order_count == nil %>
+            <% if @contractor == nil %>
             <li class="col-sm"> 0件</li>
             <% elsif %>
             <li class="col-sm"><%= @contractor.receive_order_count %>件</li>
@@ -77,5 +77,6 @@
       <%= render partial: 'users/client', locals: { client: @user } %>
       <%= render partial: 'users/contractor', locals: { contractor: @user } %>
     </div>
+
   </div>
 </div>

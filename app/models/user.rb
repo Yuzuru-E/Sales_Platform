@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   belongs_to :industry
-  has_many :clients
+  has_many :matters, through: :clients
   has_many :contractor
   
   mount_uploader :profile_image, ImageUploader

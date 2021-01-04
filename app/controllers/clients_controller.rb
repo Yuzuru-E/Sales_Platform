@@ -12,8 +12,9 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)
     if @client.save
+      redirect_to user_path(current_user.id), notice: 'クライアント情報が登録できました。'
     else
-      redirect_to user_path(current_user.id), notice: 'クライアント情報が更新できませんでした。'
+      redirect_to user_path(current_user.id), notice: 'クライアント情報が登録できませんでした。'
     end
   end
 

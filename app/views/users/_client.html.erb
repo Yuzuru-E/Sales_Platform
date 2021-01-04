@@ -1,9 +1,9 @@
 <%# 発注者情報 %>
 <div class="detail__client col">
-    <h3 class="subtitle">クライアント情報</h3>
-    <% if @client == nil %>
+  <h3 class="subtitle">クライアント情報</h3>
+  <% if @client == nil %>
     <div class="Edit__client"><%= link_to "発注者プロフィールを登録する", new_client_path, class: "btn fa fa-edit" %></div>
-    <% elsif %>
+  <% elsif %>
     <ul class="clietName item">
       <li class="itemTitle">クライアント名</li>
       <% if @client.name? %>
@@ -37,5 +37,7 @@
       <% end %>
     </ul>
     <div class="Edit__client"><%= link_to "発注者プロフィールを編集する", edit_client_path(@client.id), class: "btn fa fa-edit" %></div>
-    <% end %>
+    <div class="Edit__client"><%= link_to "案件を発注する", new_matter_path, class: "btn fa fa-edit" %></div>
+    <div class="Edit__client"><%= link_to "発注した案件一覧", ordered_index_matters_path, class: "btn fa fa-edit" %></div>
+  <% end %>
 </div>

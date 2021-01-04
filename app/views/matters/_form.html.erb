@@ -1,0 +1,38 @@
+<%# 案件登録/編集フォーム %>
+<%= form_with model:@matter, local: true do |f| %>
+  <div class="field">
+    <%= f.label :title, "案件タイトル", class: "edit__item col-6" %>
+    <%= f.text_field :title, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :matter_content, "案件概要", class: "edit__item col" %>
+    <%= f.text_area :matter_content, placeholder: "案件内容 ※1000文字まで", maxlength: 1000 %>
+  </div>
+  <div class="field">
+    <%= f.label :start_on, "掲載開始", class: "edit__item" %>
+    <%= f.date_field :start_on, id: "start_on" %>
+  </div>
+  <div class="field">
+    <%= f.label :end_on, "掲載終了", class: "edit__item" %>
+    <%= f.date_field :end_on, id: "end_on" %>
+  </div>
+  <div class="field">
+    <%= f.label :contract_period, "受託期間", class: "edit__item col-6" %>
+    <%= f.text_field :contract_period, placeholder: "例) ３ヶ月" %>
+  </div>
+  <div class="field">
+  </div>
+  <div class="field">
+    <%= f.label :reward, "案件報酬", class: "edit__item col-6" %>
+    <%= f.text_field :reward, placeholder: "例) 月30万円" %>
+  </div>
+  <div class="field">
+    <%= f.label :number_of_positions, "募集人数", class: "edit__item col-6" %>
+    <%= f.text_field :number_of_positions, placeholder: "２人" %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "登録する" %>
+  </div>
+<% end %>
+<%= link_to "マイページへ戻る", user_path(current_user.id), class: "back" %>

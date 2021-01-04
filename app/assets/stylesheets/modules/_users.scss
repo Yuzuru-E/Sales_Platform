@@ -1,11 +1,5 @@
-.signUp {
-  @include signUpLoginStyle();
-}
 
-.login {
-  @include signUpLoginStyle();
-}
-
+// マイページ
 .MyPage {
   padding-top: 100px;
   .ProfileBox {
@@ -25,9 +19,6 @@
     margin: 0 auto;
     display: flex;
     .userIcon {
-      &__title {
-
-      }
       &__icon {
         width: 150px;
         height: 150px;
@@ -136,6 +127,7 @@
   }
 }
 
+// ユーザー情報編集
 .edit {
   padding: 100px 0;
   &__title {
@@ -178,26 +170,14 @@
       width: 37.5%;
     }
     .actions {
-      margin: 20px;
-      input {
-        background-color: rgb(255, 177, 66);
-        padding: 10px 20px;
-        border: 1px solid #bdc3c7;
-        border-radius: 5px;
-        line-height: 10px;
-        cursor: pointer;
-      }
+      @include updateActions();
     }
   }
   &__selectBox {
     margin-bottom: 10px;
   }
   .back {
-    padding: 10px 20px;
-    background-color: #bdc3c7;
-    border: 1px solid gray;
-    border-radius: 5px;
-    text-decoration: none;
+    @include backBtn();
   }
   &__introduction {
     height: 200px;
@@ -205,5 +185,38 @@
       width: 80%;
       height: 80%;
     }
+  }
+}
+
+// クライアント情報登録/編集
+.client {
+  .back {
+    @include backBtn();
+  }
+  .actions {
+    @include updateActions();
+  }
+}
+
+// 受託者情報登録/編集
+.contractor {
+  .back {
+    @include backBtn();
+  }
+  .actions {
+    @include updateActions();
+  }
+}
+
+.regiMatter {
+  textarea {
+    width: 50%;
+    height: 200px
+  }
+  .back {
+    @include backBtn();
+  }
+  .actions {
+    @include updateActions();
   }
 }

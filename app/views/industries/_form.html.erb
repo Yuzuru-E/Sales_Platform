@@ -1,0 +1,9 @@
+<%# 業界フォーム %>
+<div class="industryForm__box">
+  <div class="industryForm__wrapper">
+    <div class="industryForm__wrapperBox new__all-box">
+      <%= f.label :industry, "経験産業", class: "edit__item col-5" %>
+      <%= f.collection_select :industry_id, Industry.roots, :id, :name, {include_blank: "選択してください", selected: @user.industry&.root_id}, required: true, class: "industryForm__wrapperBox--select new__all__text-field", id: "parent_industry" %>
+    </div>
+  </div>
+</div>
