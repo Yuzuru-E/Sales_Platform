@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   root 'matters#index'
   devise_for :users
 
-  resources :matters 
+  resources :matters do
+    collection do
+      get "ordered_index"
+    end
+  end
 
   resources :users do
     get 'get_industry_children', defaults: { format: 'json' }
