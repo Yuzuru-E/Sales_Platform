@@ -1,0 +1,37 @@
+<%# 発注済案件一覧 %>
+<div class="MyPage">
+  <div class="container">
+    <div class="ProfileBox">
+      <div class="matters">
+        <% if @matters %>
+          <table class="table table-striped">
+            <thead>
+              <tr class="matter">
+                <th cclass="matter__edit btn" scope="col" >編集</th>
+                <th class="matter__title" scope="col">案件タイトル</th>
+                <th class="matter__createdAt" scope="col">登録日</th>
+                <th class="matter__updateAt" scope="col">最終更新日</th>
+                <th scope="matter__delete btn" scope="col">削除</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @matters.each do |m| %>
+              <tr class="matterDetails">
+                <td><%= link_to '編集する', edit_matter_path(m.id), class: 'matterDetails__edit btn' %></td>
+                <th class="matterDetails__title matterDetails__common" scope="row"><%= m.title %></th>
+                <td class="matterDetails__createdAt matterDetails__common"><%= l m.created_at, format: :md %></td>
+                <td class="matterDetails__updatedAt matterDetails__common"><%= l m.updated_at, format: :md %></td>
+                <td><%= link_to '削除', matter_path(m.id), method: :delete, data: { confirm: '削除して宜しいですか？' }, class: 'matterDetails__delete btn' %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        <% else %>
+          <h2 class="ProfileBox__subtitle">登録された案件はありません。</h2>
+          <div class="Edit__client"><%= link_to "案件を発注する", new_matter_path, class: "btn fa fa-edit" %></div>
+        <% end %>
+        <%= link_to "マイページへ戻る", user_path(current_user.id), class: "back" %>
+      </div>
+    </div>
+  </div>
+</div>
