@@ -29,6 +29,6 @@
       <% end %>
     </ul>
     <div class="Edit__contractor"><%= link_to "受注者プロフィールを編集する", edit_contractor_path(@contractor.id), class: "btn fa fa-edit" %></div>
-    <div class="Edit__contractor"><%= link_to "受注案件を確認する", '#', class: "btn fa fa-edit" %></div>
+    <div class="Edit__contractor"><%= link_to "受注案件を確認する", recieved_index_matters_path, class: "btn fa fa-edit" %></div>
   <% end %>
 </div>
