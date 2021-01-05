@@ -39,5 +39,7 @@
     <div class="Edit__client"><%= link_to "発注者プロフィールを編集する", edit_client_path(@client.id), class: "btn fa fa-edit" %></div>
     <div class="Edit__client"><%= link_to "案件を発注する", new_matter_path, class: "btn fa fa-edit" %></div>
     <div class="Edit__client"><%= link_to "発注した案件一覧", ordered_index_matters_path, class: "btn fa fa-edit" %></div>
+    <div class="Edit__client"><%= link_to "広告を投稿する", new_advertisement_path, class: "btn fa fa-edit" %></div>
+    <div class="Edit__client"><%= link_to "投稿した広告一覧", registration_index_advertisements_path, class: "btn fa fa-edit" %></div>
   <% end %>
 </div>
