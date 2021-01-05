@@ -1,7 +1,9 @@
 class MattersController < ApplicationController
   before_action :set_current_client, only: [:new, :create, :edit, :update, :destroy, :ordered_index]
-  before_action :set_current_client_ordered_matters, only: [:ordered_index, :destroy]
-  before_action :set_matter_find, only: [:show, :edit, :destroy]
+  before_action :set_current_client_ordered_matters, only: [:update, :ordered_index, :destroy]
+  before_action :set_current_contractor, only: [:decline, :recieve_index]
+  before_action :set_current_contractor_recieved_matters, only: [:decline, :recieve_index]
+  before_action :set_matter_find, only: [:show, :edit, :update, :destroy]
 
   def index
   end
@@ -14,9 +16,14 @@ class MattersController < ApplicationController
   end
   
   def update
+    @matter.update(matter_params)
+    redirect_to ordered_index_matters_path, notice: '案件の更新が完了しました。'
   end
   
   def ordered_index
+  end
+
+  def recieved_index
   end
 
   def show
@@ -25,19 +32,6 @@ class MattersController < ApplicationController
   def create
     @matter = Matter.new(matter_params)
     @matter.industry_id = current_user.industry_id
-    # sabun = (@matter.start_on - Date.today).to_i
-    # unless sabun >= 1
-    #   flash[:error] = "募集開始日は翌日以降を指定して下さい"
-    #   render 'new'
-    #   return
-    # end
-    
-    # sabun = (@matter.end_on - @matter.start_on).to_i
-    # unless sabun >= 0
-    #   flash[:error] = "掲載終了日は開始日以降を指定して下さい"
-    #   render 'new'
-    #   return
-    # end
     
     if @matter.save
       redirect_to user_path(current_user.id), notice: '案件登録が完了いたしました。'
@@ -51,6 +45,12 @@ class MattersController < ApplicationController
     redirect_to ordered_index_matters_path, notice: '発注済案件1件が削除されました。'
   end
 
+  def decline
+    @matter.update(contracotr_id: nil, order_date: nil)
+    redirect_to recieve_index_path, notice: '案件を1件辞退いたしました。'
+  end
+
+
   private
 
   def matter_params
@@ -60,13 +60,13 @@ class MattersController < ApplicationController
   def set_matter_find
     @matter = Matter.find(params[:id])
   end
-  
-  def set_current_client
-    @current_client = Client.find_by(user_id: current_user.id)
-  end
 
   def set_current_client_ordered_matters
     @matters = Matter.where(client_id: @current_client.id)
+  end
+
+  def set_current_contractor_recieved_matters
+    @matters = Matter.where(contractor_id: @current_contractor_id)
   end
 
 end
