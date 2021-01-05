@@ -25,5 +25,10 @@ Rails.application.routes.draw do
   end
   resources :clients
   resources :contractors
+  resources :advertisements do
+    collection do
+      get "registration_index"
+    end
+  end
   
 end
