@@ -1,0 +1,38 @@
+<%# 投稿済広告一覧 %>
+<div class="MyPage">
+  <div class="container">
+    <div class="ProfileBox">
+      <div class="advertisement">
+        <h3 class="advertisement__title">投稿済広告一覧</h3>
+        <% if @advertisements %>
+          <table class="table table-striped">
+            <thead>
+              <tr class="advertisement">
+                <th cclass="advertisement__edit btn" scope="col" >編集</th>
+                <th class="advertisement__title" scope="col">広告タイトル</th>
+                <th class="advertisement__createdAt" scope="col">登録日</th>
+                <th class="advertisement__updateAt" scope="col">最終更新日</th>
+                <th scope="advertisement__delete btn" scope="col">削除</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @advertisements.each do |ad| %>
+              <tr class="advertisementDetails">
+                <td><%= link_to '編集する', edit_advertisement_path(ad.id), class: 'advertisementDetails__edit btn' %></td>
+                <th class="advertisementDetails__title advertisementDetails__common" scope="row"><%= ad.title %></th>
+                <td class="advertisementDetails__createdAt advertisementDetails__common"><%= l ad.created_at, format: :md %></td>
+                <td class="advertisementDetails__updatedAt advertisementDetails__common"><%= l ad.updated_at, format: :md %></td>
+                <td><%= link_to '削除', advertisement_path(ad.id), method: :delete, data: { confirm: '削除して宜しいですか？' }, class: 'advertisementDetails__delete btn' %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        <% else %>
+          <h2 class="ProfileBox__subtitle">登録された広告はありません。</h2>
+          <div class="Edit__client"><%= link_to "広告を投稿する", new_advertisement_path, class: "btn fa fa-edit" %></div>
+        <% end %>
+        <%= link_to "マイページへ戻る", user_path(current_user.id), class: "back" %>
+      </div>
+    </div>
+  </div>
+</div>

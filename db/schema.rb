@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_24_044912) do
+ActiveRecord::Schema.define(version: 2021_01_05_012851) do
+
+  create_table "advertisements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "client_id", null: false
+    t.string "title", null: false
+    t.date "start_on", null: false
+    t.date "end_on", null: false
+    t.text "banner_image", null: false
+    t.text "banner_url", null: false
+    t.bigint "industry_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_advertisements_on_client_id"
+    t.index ["industry_id"], name: "index_advertisements_on_industry_id"
+  end
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -85,6 +99,7 @@ ActiveRecord::Schema.define(version: 2020_12_24_044912) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "advertisements", "clients"
   add_foreign_key "clients", "users"
   add_foreign_key "contractors", "users"
   add_foreign_key "matters", "clients"

@@ -1,0 +1,16 @@
+// 投稿済広告一覧
+
+.advertisement {
+  .field {
+    display: flex;
+  }
+  .back {
+  @include backBtn();
+  }
+}
+
+.advertisementDetails {
+  &__common {
+      line-height: 66px;
+  }
+}

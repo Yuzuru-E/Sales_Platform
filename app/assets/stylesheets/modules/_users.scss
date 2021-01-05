@@ -139,23 +139,21 @@
     margin-bottom: 10px;
   }
   &__item {
-    padding-right: 50px;
-    margin-right: 20px;
+    @include itemSpace();
   }
   &__contents {
-    .iconTitle {
-      margin: 10px 0;
-    }
     margin: 30px auto;
     width: 70%;
     border: 1px solid rgba(247, 241, 227, 0.229);
     border-radius: 5px;
+    .iconTitle {
+      margin: 10px 0;
+    }
     .field {
       display: flex;
     }
     label {
       font-size: 22px;
-      // padding: 5px 0;
       display: inline-block;
     }
     input {
@@ -208,10 +206,39 @@
   }
 }
 
+// 案件登録/編集
 .regiMatter {
+  &__item {
+    @include itemSpace();
+  }
+  label {
+    @include labelSize();
+  }
+  input {
+    @include inputSize();
+  }
   textarea {
     width: 50%;
     height: 200px
+  }
+  .back {
+    @include backBtn();
+  }
+  .actions {
+    @include updateActions();
+  }
+}
+
+// 広告登録/編集
+.regiAdvertisement {
+  &__item {
+    @include itemSpace();
+  }
+  label {
+    @include labelSize();
+  }
+  input {
+    @include inputSize();
   }
   .back {
     @include backBtn();
