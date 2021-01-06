@@ -32,7 +32,7 @@
           </ul>
           <ul class="col-sm commonProfile__sendOrder profileFlex">
             <li class="col-sm">発注数</li>
-            <% if @client == nil %>
+            <% if @client == nil || @client.send_order_count == nil %>
             <li class="col-sm"> 0件</li>
             <% elsif %>
             <li class="col-sm"><%= @client.send_order_count %>件</li>
@@ -40,7 +40,7 @@
           </ul>
           <ul class="col-sm commonProfile__receiveOrder profileFlex">
             <li class="col-sm">受注数</li>
-            <% if @contractor == nil %>
+            <% if @contractor == nil || @contractor.receive_order_count == nil %>
             <li class="col-sm"> 0件</li>
             <% elsif %>
             <li class="col-sm"><%= @contractor.receive_order_count %>件</li>
@@ -65,7 +65,7 @@
       <h3 class="ProfileBox__subtitle">自己紹介文(事業内容/経歴等)</h3>
       <div class="col introduce arrowBoxTop">
         <% if @user.profile == nil %>
-        <p class="col-sm">未登録</p>
+        <p class="col-sm ProfileBox__text">未登録</p>
         <% elsif %>
         <%= safe_join(@user.profile.split("\n"),tag(:br)) %>
         <% end %>
