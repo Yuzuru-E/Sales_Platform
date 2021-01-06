@@ -1,7 +1,7 @@
 class MattersController < ApplicationController
   before_action :set_current_client, only: [:new, :create, :edit, :update, :destroy, :ordered_index]
   before_action :set_current_client_ordered_matters, only: [:update, :ordered_index, :destroy]
-  before_action :set_current_contractor, only: [:decline, :recieve_index]
+  before_action :set_current_contractor, only: [:show, :decline, :recieve_index]
   before_action :set_current_contractor_recieved_matters, only: [:decline, :recieve_index]
   before_action :set_matter_find, only: [:show, :edit, :update, :destroy]
 
@@ -16,6 +16,7 @@ class MattersController < ApplicationController
   end
   
   def update
+    @matter.industry_id = current_user.industry_id
     @matter.update(matter_params)
     redirect_to ordered_index_matters_path, notice: '案件の更新が完了しました。'
   end
@@ -27,6 +28,17 @@ class MattersController < ApplicationController
   end
 
   def show
+    # @matter = Matter.find(1)
+    @grandchild = Industry.find(@matter.industry_id)
+    @child = @grandchild.parent
+    @parent = @child.parent if @child
+    period = (@matter.end_on - Date.today).to_i
+    if period <= 0
+      @period = "募集終了"
+    else
+      @period = period
+    end
+
   end
   
   def create
