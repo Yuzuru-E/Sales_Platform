@@ -27,6 +27,7 @@
             <% end %>
             </tbody>
           </table>
+          <div class="Edit__client"><%= link_to "案件を発注する", new_matter_path, class: "btn fa fa-edit" %></div>
         <% else %>
           <h2 class="ProfileBox__subtitle">登録された案件はありません。</h2>
           <div class="Edit__client"><%= link_to "案件を発注する", new_matter_path, class: "btn fa fa-edit" %></div>
