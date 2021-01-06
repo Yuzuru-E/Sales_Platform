@@ -1,85 +1,73 @@
-<div class="container">
-                <!-- title -->
-          <section class="section-title-group">
-            <h2 class="mt-4 pb-4 c-heading heading--lv1">
-            案件詳細ページ
-            </h2>
-          </section>
-          
-            <div class="mt-4 row">
-                <h4 class="col-sm-3">
-                  <strong>案件の情報</strong>
-                </h4>
-            </div>       
-            
-            <div class="item">
-                <table class="table table-bordered mt-4">    
-                  <thead>
-                    <tr bgcolor="silver">
-                      <td>項目</td>
-                      <td>内容</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>掲載期間</td>
-                      <td>◯ヶ月</td>
-                    </tr>
-                    <tr>
-                      <td>募集人数</td>
-                      <td>◯人</td>
-                    </tr>
-                    <tr>
-                      <td>契約期間</td>
-                      <td>◯ヶ月</td>
-                    </tr>
-                  </tbody>
-                </table>
-            </div> 
-                <h4 class="col-sm-3">
-                  <strong>案件の詳細</strong>
-                </h4>      
-                <table class="table table-bordered mt-4">
-                  <thead>
-                    <tr bgcolor="silver">
-                      <td>項目</td>
-                      <td>内容</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                        <td>業種カテゴリ</td>
-                        <td>IT・通信</td>
-                    </tr>
-                    <tr>
-                        <td>月額報酬</td>
-                        <td>300,000円</td>
-                    </tr>
-                    <tr>
-                        <td>必須経験</td>
-                        <td>法人営業3年以上</td>
-                    </tr>
-                    <tr>
-                        <td>歓迎するスキル</td>
-                        <td>新規開拓</td>
-                    </tr>
-                  </tbody>
-                </table>    
-                    
-                <div class="card">
-                  <div class="card-header">
-                    <i class="fas fa-info-circle"></i>企業からのメッセージ
-                  </div>
-                  <div class="card-body">
-                    <a>ご興味お持ち頂けましたらご提案をお待ち致しております。</a><br/>
-                  </div>
-                </div>    
-                    
-                <div class="pb-3" style="color: white; ">下に1remのパディング</div>
-
-            </div>
-          
+<div class="matterShow">
+  <div class="container">
+    <section class="section-title-group">
+      <h2 class="mt-4 pb-4 c-heading heading--lv1">
+      案件詳細ページ
+      </h2>
+    </section>
+    <section class="matterDetails">
+        <div class="mt-4 row">
+          <h4 class="col-sm-3"><strong>案件名：<%= @matter.title %></strong></h4>
         </div>
-        
-
-        
+        <div class="item">
+          <table class="table table-bordered mt-4">
+            <thead>
+              <tr bgcolor="silver">
+                <td>項目</td>
+                <td>内容</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>掲載期間</td>
+                <% if @period.to_i %>
+                <td>残り<%= @period %>日</td>
+                <% else%>
+                <td>残り<%= @period %>日</td>
+                <% end %>
+              </tr>
+              <tr>
+                <td>募集人数</td>
+                <td><%= @matter.number_of_positions %>人</td>
+              </tr>
+              <tr>
+                <td>契約期間</td>
+                <td><%= @matter.contract_period %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div> 
+        <h4 class="col-sm-3"><strong>案件の詳細</strong></h4>
+        <table class="table table-bordered mt-4">
+          <thead>
+            <tr bgcolor="silver">
+              <td>項目</td>
+              <td>内容</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td>業種カテゴリ</td>
+                <td>
+                  <ul class="industry" style="display: flex; justify-content: center;">
+                    <li class="industry__item"><%= @parent.name %></li><span>　</span>
+                    <li class="industry__item"><%= @child.name %></li>
+                  </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>報酬</td>
+                <td><%= @matter.reward %></td>
+            </tr>
+            <tr>
+                <td>必須経験</td>
+                <td><%= @grandchild.name %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% if @current_contractor %>
+      <div><%= link_to "案件を受注する", "#", class: "btn fa fa-edit" %></div>
+      <% end %>
+    </section>
+  </div>
+</div>
