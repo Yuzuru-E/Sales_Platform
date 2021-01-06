@@ -4,7 +4,7 @@
     <div class="ProfileBox">
       <div class="matters">
         <h3 class="matters__title">受注済案件一覧</h3>
-        <% if @matters %>
+        <% if @matters && nil %>
           <table class="table table-striped">
             <thead>
               <tr class="matter">
@@ -25,6 +25,7 @@
             <% end %>
             </tbody>
           </table>
+          <div class="Edit__client"><%= link_to "案件を受注する", "#", class: "btn fa fa-edit" %></div>
         <% else %>
           <h2 class="ProfileBox__subtitle">受注した案件はありません。</h2>
           <div class="Edit__client"><%= link_to "案件を受注する", "#", class: "btn fa fa-edit" %></div>
