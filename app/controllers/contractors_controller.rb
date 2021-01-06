@@ -11,9 +11,9 @@ class ContractorsController < ApplicationController
   def create
     @contractor = Contractor.new(contractor_params)
     if @contractor.save
-
+      redirect_to user_path(current_user.id), notice: '受託者情報が登録できました。'
     else
-      redirect_to user_path(current_user.id), notice: 'ランサー情報が更新できませんでした。'
+      redirect_to user_path(current_user.id), notice: '受託者情報が登録できませんでした。'
     end
   end
   
