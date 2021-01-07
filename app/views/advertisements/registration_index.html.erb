@@ -27,6 +27,7 @@
             <% end %>
             </tbody>
           </table>
+          <div class="Edit__client"><%= link_to "広告を投稿する", new_advertisement_path, class: "btn fa fa-edit" %></div>
         <% else %>
           <h2 class="ProfileBox__subtitle">登録された広告はありません。</h2>
           <div class="Edit__client"><%= link_to "広告を投稿する", new_advertisement_path, class: "btn fa fa-edit" %></div>

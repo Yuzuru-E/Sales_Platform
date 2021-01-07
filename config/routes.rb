@@ -8,7 +8,8 @@ Rails.application.routes.draw do
       get "recieved_index"
     end
     member do
-      patch "decline"
+    put "decline"
+    put "recieved"
     end
   end
 

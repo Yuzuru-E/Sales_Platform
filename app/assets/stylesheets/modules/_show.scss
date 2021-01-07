@@ -1,5 +1,39 @@
-.item {
-  margin-bottom: 100px;
+.matterShow {
+  .container {
+    background-color: initial;
+  }
 }
 
+.section-title-group {
+  margin-top: 100px;
+}
+
+.matterDetails {
+  .item {
+    margin-bottom: 50px;
+  }
+  .btn {
+    margin: 20px;
+    background-color: rgb(255, 177, 66);
+    padding: 10px 20px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    line-height: 10px;
+    cursor: pointer;
+    margin-bottom: 15px;
+  }
+}
+
+.matterContent {
+  .content {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px 15px;
+    overflow: visible scroll;
+    text-align: initial;
+    text-align: center;
+  }
+  @include arrowBox();
+}
 
