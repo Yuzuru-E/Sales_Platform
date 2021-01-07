@@ -60,16 +60,6 @@ li {
 }
 
 @mixin arrowBox {
-  .introduce {
-    width: 80%;
-    height: 300px;
-    margin: 0 auto;
-    padding: 10px 15px;
-    overflow: scroll;
-    p {
-      margin-bottom: 0;
-    }
-  }
   .arrowBoxTop {
     position: relative;
     background: #ffffff;
