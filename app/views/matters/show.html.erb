@@ -65,9 +65,20 @@
             </tr>
           </tbody>
         </table>
-      <% if @current_contractor %>
-      <div><%= link_to "案件を受注する", "#", class: "btn fa fa-edit" %></div>
+
+        <section class="matterContent">
+          <h4 class="matterContent__title">案件説明</h4>
+          <div div class="col content arrowBoxTop">
+            <%= safe_join(@matter.matter_content.split("\n"),tag(:br)) %>
+          </div>
+        </section>
+      <% if @current_contractor && @matter.contractor_id == nil %>
+        <div><%= link_to "案件を受注する", recieved_matter_path(@matter.id), method: :put ,class: "btn fa fa-edit" %></div>
       <% end %>
+      <% if @matter.contractor_id %>
+        <div><%= link_to "案件を辞退する", decline_matter_path(@matter.id), method: :put ,class: "btn fa fa-edit" %></div>
+      <% end %>
+
     </section>
   </div>
 </div>
