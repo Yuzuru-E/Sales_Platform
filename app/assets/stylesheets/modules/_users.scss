@@ -79,6 +79,7 @@
     padding-left: 0;
   }
   .introduce {
+    text-align: center;
     width: 80%;
     height: auto;
     margin: 0 auto;
@@ -89,35 +90,7 @@
       margin-bottom: 0;
     }
   }
-  .arrowBoxTop {
-    position: relative;
-    background: #ffffff;
-    border: 2px solid #4dafe8;
-    border-radius: 5px;
-  }
-  .arrowBoxTop:after, .arrowBoxTop:before {
-    bottom: 100%;
-    left: 50%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-  }
-  
-  .arrowBoxTop:after {
-    border-color: rgba(255, 255, 255, 0);
-    border-bottom-color: #ffffff;
-    border-width: 10px;
-    margin-left: -10px;
-  }
-  .arrowBoxTop:before {
-    border-color: rgba(232, 165, 77, 0);
-    border-bottom-color: #e8a54d;
-    border-width: 17px;
-    margin-left: -17px;
-  }
+  @include arrowBox();
   .btn {
     display: inline-block;
     text-decoration: none;
